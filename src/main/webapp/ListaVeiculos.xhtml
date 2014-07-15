@@ -1,0 +1,46 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <f:metadata>
+    	<f:viewAction action="#{consultaVeiculosBean.prepararVeiculos}"/>
+    </f:metadata>
+
+	<ui:define name="titulo">Lista de veículos</ui:define>
+
+	<ui:define name="corpo">
+		<h1>Lista de veículos</h1>
+		
+		<p:dataTable value="#{consultaVeiculosBean.listaVeiculos}" var="veiculo" style="margin-top: 20px">
+	    	<p:column headerText="Fabricante" >
+	    		<h:outputText value="#{veiculo.fabricante}" />
+	    	</p:column>
+	    	<p:column headerText="Modelo" >
+	    		<h:outputText value="#{veiculo.modelo}"/>
+	    	</p:column>
+	    	<p:column headerText="Ano fabricação" >
+	    		<h:outputText value="#{veiculo.anoFabricacao}" />
+	    	</p:column>
+	    	<p:column headerText="Ano modelo" >
+	    		<h:outputText value="#{veiculo.anoModelo}" />
+	    	</p:column>
+	    	<p:column headerText="Tipo de combustível" >
+	    		<h:outputText value="#{veiculo.tipoCombustivel}" />
+	    	</p:column>
+	    	<p:column headerText="Nome proprietário" >
+	    		<h:outputText value="#{veiculo.proprietario.nome}" />
+	    	</p:column>
+	    	<p:column headerText="E-mail proprietário" >
+	    		<h:outputText value="#{veiculo.proprietario.email}" />
+	    	</p:column>
+	    	<p:column headerText="Telefone proprietário" >
+	    		<h:outputText value="#{veiculo.proprietario.telefone}" />
+	    	</p:column>
+		</p:dataTable>
+		
+	</ui:define>
+
+</ui:composition>
